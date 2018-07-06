@@ -15,6 +15,7 @@ class Kuliner_model extends CI_Model
 		$object = array(
 			'nama' => $this->input->post('nama'),
 			'alamat' => $this->input->post('alamat'),
+			'keterangan' => $this->input->post('keterangan'),
 			'tanggal' => $tglBaru);
 		$this->db->insert('kuliner_malang', $object);
 
@@ -32,6 +33,7 @@ class Kuliner_model extends CI_Model
 		$data = array(
 			'nama' => $this->input->post('nama'),
 			'alamat' => $this->input->post('alamat'),
+			'keterangan' => $this->input->post('keterangan'),
 			'tanggal' => $this->input->post('tanggal'),
 		);
 		$this->db->where('idKuliner', $idKuliner);
