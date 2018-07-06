@@ -85,6 +85,9 @@
                 <label for=""><b>Alamat Tempat</b></label>
                 <input type="text" class="form-control" name="alamat" id="alamat" value="<?php echo $kuliner[0]->alamat ?>" placeholder="Input field">
                 <br>
+                <label for=""><b>Keterangan</b></label>
+                <textarea class="form-control" rows="5" name="keterangan" id="keterangan" placeholder="Input field"><?php echo $kuliner[0]->keterangan ?></textarea>
+                <br>
                 <label for=""><b>Didirikan</b></label>
                 <input type="Date" class="form-control" name="tanggal" id="tanggal" value="<?php echo $kuliner[0]->tanggal ?>" placeholder="Date">
               </div>
