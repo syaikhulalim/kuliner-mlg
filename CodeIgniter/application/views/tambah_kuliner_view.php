@@ -86,11 +86,18 @@
               <label for=""><b>Alamat Tempat</b></label>
               <input type="text" class="form-control" name="alamat" placeholder="Input field">
               <br>
+              <label for=""><b>Keterangan</b></label>
+              <textarea class="form-control" rows="5" name="keterangan" id="keterangan"></textarea>
+              <br>
               <label for=""><b>Didirikan</b></label>
               <input type="Date" class="form-control" name="tanggal" placeholder="Date">
             </div>
-            <button type="submit" class="btn btn-warning"><b>TAMBAH</b></button>
-            <?php echo form_close(); ?>
+            <table><tbody><tr><td>
+              <button type="submit" class="btn btn-warning"><b>TAMBAH</b></button>
+              <?php echo form_close(); ?>  
+              <a href="<?php echo base_url('index.php/Kuliner') ?>" class="btn btn-info">KEMBALI</a>
+              </td></tr></tbody>
+            </table>
             </div>
         </div>
     </div>
