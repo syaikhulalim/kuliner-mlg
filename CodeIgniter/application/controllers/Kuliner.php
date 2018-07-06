@@ -9,6 +9,16 @@
  		if($this->session->userdata('logged_in')){
  			$session_data = $this->session->userdata('logged_in');
  			$data['username'] = $session_data['username'];
+ 			$data['level'] = $session_data['level'];
+ 			$current_controller=$this->router->fetch_class();
+ 			$this->load->library('acl');
+ 			if (! $this->acl->is_public($current_controller)) 
+ 			{
+ 				if (! $this->acl->is_allowed($current_controller, $data['level'])) 
+ 				{
+ 					redirect('home','refresh')
+ 				}
+ 			}
  		}else{
  			redirect('login','refresh');
  		}
@@ -29,6 +39,7 @@
 		$this->load->model('kuliner_model');
 		$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
 		$this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
+		$this->form_validation->set_rules('keterangan', 'Keterangan', 'trim|required');
 		$this->form_validation->set_rules('tanggal', 'Tanggal', 'trim|required');
 
 		if ($this->form_validation->run()==FALSE)
@@ -48,6 +59,7 @@
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
 		$this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
+		$this->form_validation->set_rules('keterangan', 'Keterangan', 'trim|required');
 		$this->form_validation->set_rules('tanggal', 'Tanggal', 'trim|required');
 
 		$this->load->model('kuliner_model');
