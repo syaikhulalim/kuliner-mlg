@@ -45,7 +45,15 @@
                         <a href="<?php echo base_url('index.php/Home') ?>">Home</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url('index.php/Login') ?>">Login / Register</a>
+                        <?php 
+                        if(!$this->session->userdata('logged_in')) 
+                        {
+                            echo '<a href="'.base_url('index.php/Login').'">Login / Register</a>';
+                        } 
+                        else {
+                            echo '<a href="'.base_url('index.php/Login/logout').'">Logout</a>';
+                        }
+                        ?>
                     </li>
                 </ul>
             </div>
@@ -73,55 +81,25 @@
     <!-- Main Content -->
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-preview">
-                    <a href="<?php echo base_url('index.php/Home') ?>">
-                        <h2 class="post-title">
-                            Sego Ceker Pedas Glintung
-                        </h2>
-                        <h3 class="post-subtitle">
-                            A must try buat penyuka makanan pedas
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Admin</a> on September 12, 2017</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="<?php echo base_url('index.php/Home') ?>">
-                        <h2 class="post-title">
-                            Soto Banjar Acil Galuh
-                        </h2>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Admin</a> on Desember 18, 2017</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="<?php echo base_url('index.php/Home') ?>">
-                        <h2 class="post-title">
-                            Cwie Mie Hok Lay Malang
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Depot yang seakan berbisik tentang sejarahnya lewat bangunan yang berkesan vintage
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Admin</a> on January 24, 2018</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="<?php echo base_url('index.php/Home') ?>">
-                        <h2 class="post-title">
-                            Ronde Titoni
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Menikmati sejuknya Malang di malam hari dengan Ronde Titoni
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Admin</a> on July 8, 2018</p>
-                </div>
-                <hr>
-                
+            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+                <?php $blog = $this->db->get('kuliner_malang')->result();
+                    foreach ($blog as $key ) { ?>
+                        <div class="post-preview">
+                            <h2 class="post-title">
+                                <?=$key->nama?>
+                            </h2>
+                            <p class="post-meta">
+                                <?=$key->alamat?>
+                            </p>
+                            <p><?=  substr(strip_tags($key->keterangan), 0, 200).'...';?>
+                            </p>
+                            <p><a href="<?=  base_url().'index.php/post/'.$key->idKuliner?>">Read More</a></p>
+                            <p class="post-meta">Posted by <a href="#">Admin</a></p>
+                        </div>
+                        <hr>
+                    <?php } ?>
             </div>
-        </div>
+        </div>        
     </div>
 
     <hr>
