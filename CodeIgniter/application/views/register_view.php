@@ -84,6 +84,13 @@
                 <label for="password" class="sr-only">Password</label>
                 <input type="password" name="password" id="password" class="form-control" placeholder="Password">
                 <br>
+                <label for="">ROLE</label>
+                <select name="level" class="form-control">
+                    <option value="">---</option>
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                </select>
+                <br>
                 <button class="btn btn-info" type="submit">DAFTAR</button>
 
                 <a href="<?php echo base_url('index.php/Login') ?>" class="btn btn-warning">LOGIN</a>
