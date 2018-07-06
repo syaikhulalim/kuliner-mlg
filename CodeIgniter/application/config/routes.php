@@ -53,5 +53,4 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['addPeminjam'] = 'Home/addPeminjam';
-$route['deletePeminjam'] = 'Home/deletePeminjam';
+$route['post/(:any)'] = 'Home/post';
