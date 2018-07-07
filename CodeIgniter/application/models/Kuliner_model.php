@@ -17,6 +17,7 @@ class Kuliner_model extends CI_Model
 			'alamat' => $this->input->post('alamat'),
 			'keterangan' => $this->input->post('keterangan'),
 			'tanggal' => $tglBaru);
+			'foto' => $this->upload->data('file_name'));
 		$this->db->insert('kuliner_malang', $object);
 
 	}
