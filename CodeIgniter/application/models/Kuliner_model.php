@@ -36,6 +36,7 @@ class Kuliner_model extends CI_Model
 			'alamat' => $this->input->post('alamat'),
 			'keterangan' => $this->input->post('keterangan'),
 			'tanggal' => $this->input->post('tanggal'),
+			'foto' => $this->input->post('foto'),
 		);
 		$this->db->where('idKuliner', $idKuliner);
 		$this->db->update('kuliner_malang', $data);
