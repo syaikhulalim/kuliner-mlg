@@ -46,10 +46,27 @@
 		{
 			$this->load->view('tambah_kuliner_view');
 		}
-		else
+	else
 		{
-			$this->kuliner_model->insertKuliner();
-			$this->load->view('tambah_kuliner_data');
+			$config['upload_path']		= './assets/uploads';
+			$config['allowed_types']	= 'gif|jpg|png';
+			$config['max_size']			= 10000000;
+			$config['max_width']		= 10240;
+			$config['max_height']		= 7680;
+
+			$this->load->library('upload', $config);
+
+			if ( ! $this->upload->do_upload('foto'))
+			{
+				$error = array('error' => $this->upload->display_error());
+				$this->load->view('tambah_kuliner_view', $error);
+			}
+
+			else
+			{
+				$this->kuliner_model->insertKuliner();
+				$this->load->view('tambah_kuliner_data');
+			}
 		}
 	}
 
