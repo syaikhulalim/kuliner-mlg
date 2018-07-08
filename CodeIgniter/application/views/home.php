@@ -93,6 +93,10 @@
                             </p>
                             <p><?=  substr(strip_tags($key->keterangan), 0, 200).'...';?>
                             </p>
+                            <p class="post-file">
+                                <img src="<?php echo base_url() ?>assets/uploads/<?= $key->foto ?>" width=300 height=150>
+                            <p><?=  substr(strip_tags($key->keterangan), 0, 200).'...';?>
+                            </p>
                             <p><a href="<?=  base_url().'index.php/post/'.$key->idKuliner?>">Read More</a></p>
                             <p class="post-meta">Posted by <a href="#">Admin</a></p>
                         </div>
