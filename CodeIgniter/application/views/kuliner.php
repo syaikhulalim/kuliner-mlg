@@ -88,6 +88,7 @@
                       <th>Alamat Tempat</th>
                       <th>Keterangan</th>
                       <th>Didirikan</th>
+                      <th>Foto</th>
                       <th>Aksi</th>
                     </thead>
                     <tbody>
@@ -98,6 +99,7 @@
                           <td width="15%"><?php echo $value['alamat'] ?></td>
                           <td width="45%"><?php echo $value['keterangan'] ?></td>
                           <td><?php echo $value['tanggal'] ?></td>
+                          <td><img src="<?php echo base_url()?>assets/uploads/<?php echo $value['foto']?>" alt="" width=100 height=100></td>
                           <td>
                             <a href="<?php echo base_url("index.php/Kuliner/update/".$value['idKuliner']) ?>" class="btn btn-sm btn-success">Edit</a>
                             <a href="<?php echo base_url("index.php/Kuliner/deleteData/".$value['idKuliner']) ?>" class="btn btn-sm btn-danger">Hapus</a>
