@@ -89,6 +89,8 @@
                     <p class="post-meta">
                         <?=$kuliner_list['alamat']?>
                     </p>
+                    <p class="post-file">
+                        <img src="<?php echo base_url()?>assets/uploads/<?php echo $kuliner_list['foto']?>" alt="" width=100 height=100>
                     <p class="text-justify">
                         <?=$kuliner_list['keterangan']?>
                     </p>
