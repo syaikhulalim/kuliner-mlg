@@ -91,6 +91,9 @@
               <br>
               <label for=""><b>Didirikan</b></label>
               <input type="Date" class="form-control" name="tanggal" placeholder="Date">
+              <br>
+              <label for=""><b>Foto</b></label>
+              <input type="File" class="form-control" name="foto" placeholder="upload file">
             </div>
             <table><tbody><tr><td>
               <button type="submit" class="btn btn-warning"><b>TAMBAH</b></button>
