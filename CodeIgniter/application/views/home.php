@@ -51,7 +51,7 @@
                             echo '<a href="'.base_url('index.php/Login').'">Login / Register</a>';
                         } 
                         else {
-                            echo '<a href="'.base_url('index.php/Login/logout').'">Logout</a>';
+                            echo '<a href="'.base_url('index.php/Login').'">Logout</a>';
                         }
                         ?>
                     </li>
