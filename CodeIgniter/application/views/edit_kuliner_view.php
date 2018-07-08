@@ -90,6 +90,9 @@
                 <br>
                 <label for=""><b>Didirikan</b></label>
                 <input type="Date" class="form-control" name="tanggal" id="tanggal" value="<?php echo $kuliner[0]->tanggal ?>" placeholder="Date">
+                 <br>
+                <label for=""><b>Foto</b></label>
+              <input type="File" class="form-control" name="foto" placeholder="upload file">
               </div>
               <button type="submit" class="btn btn-warning"><b>UPDATE</b></button>
               <?php echo form_close(); ?>  
