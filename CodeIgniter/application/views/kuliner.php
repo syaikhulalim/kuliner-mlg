@@ -35,7 +35,7 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="<?php echo base_url('index.php/Home') ?>">Tugas Besar</a>
+                <a class="navbar-brand" href="<?php echo base_url('index.php/kuliner') ?>">Tugas Besar</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -75,9 +75,18 @@
         <div class="row">
             
             <div class="col-sm-offset-1 col-sm-10">
-            <legend><h2>Daftar Kuliner</h2></legend>
-                <ul class="nav navbar-left">
-                <a href="<?php echo base_url('index.php/Kuliner/create') ?>" class="btn btn-warning my-3"><b>TAMBAH</b></a>
+            <ul class="nav navbar-nav navbar-left">
+            <li>
+                <a href="<?php echo base_url('index.php/kuliner') ?>"><h2>Daftar Kuliner</h2></a>
+            </li>
+            <li>
+                <a href="<?php echo base_url('index.php/user') ?>"><h2>Daftar User</h2></a>
+            </li>
+            <br>
+            </ul>
+            
+                <ul class="nav navbar-right">
+                <br><a href="<?php echo base_url('index.php/kuliner/create') ?>" class="btn btn-warning my-3"><b>TAMBAH DATA</b></a>
                 </ul>
                   <br>
                   <table class="table table-hover">
@@ -97,12 +106,12 @@
                           <td><?php echo $value['idKuliner'] ?></td>
                           <td width="15%"><?php echo $value['nama'] ?></td>
                           <td width="15%"><?php echo $value['alamat'] ?></td>
-                          <td width="45%"><?php echo $value['keterangan'] ?></td>
+                          <td width="35%"><?php echo $value['keterangan'] ?></td>
                           <td><?php echo $value['tanggal'] ?></td>
                           <td><img src="<?php echo base_url()?>assets/uploads/<?php echo $value['foto']?>" alt="" width=100 height=100></td>
                           <td>
-                            <a href="<?php echo base_url("index.php/Kuliner/update/".$value['idKuliner']) ?>" class="btn btn-sm btn-success">Edit</a>
-                            <a href="<?php echo base_url("index.php/Kuliner/deleteData/".$value['idKuliner']) ?>" class="btn btn-sm btn-danger">Hapus</a>
+                            <a href="<?php echo base_url("index.php/kuliner/update/".$value['idKuliner']) ?>" class="btn btn-sm btn-success">Edit</a>
+                            <a href="<?php echo base_url("index.php/kuliner/deleteData/".$value['idKuliner']) ?>" class="btn btn-sm btn-danger">Hapus</a>
                           </td>
                         </tr>
                         
