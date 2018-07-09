@@ -21,7 +21,7 @@
     <link href="<?php echo base_url() ?>assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
+    
 </head>
 
 <body>
@@ -51,9 +51,9 @@
                             echo '<a href="'.base_url('index.php/Login').'">Login / Register</a>';
                         } 
                         else {
-                            echo '<a href="'.base_url('index.php/Login').'">Logout</a>';
+                            echo '<a href="'.base_url('index.php/Login/logout').'">Logout</a>';
                         }
-                        ?>
+                        ?>  
                     </li>
                 </ul>
             </div>
@@ -83,68 +83,54 @@
         <div class="row">
             <div class="col-sm-2"></div>
             <div class="col-sm-6">
-                
-                <?php $blog = $this->db->get('kuliner_malang')->result();
-                    foreach ($blog as $key ) { ?>
-                    <div class="jumbotron">
+            <div class="jumbotron">
+            <h2>HASIL PENCARIAN : </h2>
+                <?php
+             
+                    if(count($cari)>0)
+                    {
+                        foreach ($cari as $data) {
+                        {?>
                         <div class="post-preview">
                             <h2 class="post-title">
-                                <?=$key->nama?>
+                                <?=$data->nama?>
                             </h2>
                             <p class="post-meta">
-                                <?=$key->alamat?>
+                                <?=$data->alamat?>
                             </p>
                             <p class="post-file">
-                                <img src="<?php echo base_url() ?>assets/uploads/<?= $key->foto ?>" width=800 height=455>
+                                <img src="<?php echo base_url() ?>assets/uploads/<?= $data->foto ?>" width=800 height=455>
                             </p>
-                            <p><?=  substr(strip_tags($key->keterangan), 0, 200).'...';?>
+                            <p class="text-justify">
+                                <?=$data->keterangan?>
                             </p>
-                            <p><a href="<?=  base_url().'index.php/post/'.$key->idKuliner?>">Read More</a></p>
-                            <p class="post-meta">Posted by <a href="#">Admin</a></p>
-                        </div>
                         </div>
                         <hr>
-                    <?php } ?>
-                
-            </div>
-                <div class="col-sm-2">
-                    <div class="jumbotron">
-                    <?php 
-                        if(!$this->session->userdata('logged_in')) 
-                        {
-                        {?>
-
-                        <form action="<?php echo base_url('index.php/item/hasil')?>" action="GET">
-                            <div class="form-group">
-                                <label for="cari"><h2>Cari Data : </h2></label>
-                                <input type="text" class="form-control" id="cari" name="cari" placeholder="cari">
-                            </div>
-                            <input class="btn btn-primary" type="submit" value="Cari">
-                        </form>
                             
                         <?php
                         }
-                        } 
-                        else 
-                        {
-                        {?>
-
-                        <form action="<?php echo base_url('index.php/item/hasil')?>" action="GET">
-                            <div class="form-group">
-                                <label for="cari"><h2>Cari Data : </h2></label>
-                                <input type="text" class="form-control" id="cari" name="cari" placeholder="cari">
-                            </div>
-                            <input class="btn btn-primary" type="submit" value="Cari">
-                        </form>
-                        <br>
-                        <a href="<?php echo base_url('index.php/Reportpdf/index') ?>" class="btn btn-primary my-3">Print</a>   
-                        <?php
                         }
-                        }
-                    ?>
+                    }
+                    else
+                    {
+                        echo "Data tidak ditemukan";
+                    }
+             
+                    ?>  
+                    </div>            
                 </div>
-            </div>
-        </div>       
+                <div class="col-sm-2">
+                <div class="jumbotron">
+                <form action="<?php echo base_url('index.php/item/hasil')?>" action="GET">
+                <div class="form-group">
+                    <label for="cari"><h2>Cari Data : </h2></label>
+                    <input type="text" class="form-control" id="cari" name="cari" placeholder="cari">
+                </div>
+                <input class="btn btn-primary" type="submit" value="Cari">
+                </form>
+                </div>
+                </div>
+        </div>
     </div>
 
     <hr>
