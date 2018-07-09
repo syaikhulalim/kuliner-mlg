@@ -67,24 +67,30 @@
     <!-- Main Content -->
     <div class="container">
         <div class="row">
+
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="jumbotron">
                 <form class="form-signin" method="post" action="<?php echo base_url('index.php/Login/cekLogin') ?>">
-                <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-                <h2><b>MENU LOGIN</b></h2>
+                <h2><b>Login to your Account</b></h2>
                 <?php echo validation_errors(); ?>
                 <br>
+                <div class="form-group">
                 <label for="username" class="sr-only">Username</label>
                 <input type="text" name="username" id="username" class="form-control" placeholder="Username" autofocus>
-                <br>
+                </div>
+                <div class="form-group">
                 <label for="password" class="sr-only">Password</label>
                 <input type="password" name="password" id="password" class="form-control" placeholder="Password">
-                <br>
-                <button class="btn btn-warning" type="submit">LOGIN</button>
+                </div>
                 
-                <a href="<?php echo base_url('index.php/Login/register') ?>" class="btn btn-info">DAFTAR</a>
+                <button class="btn btn-xs btn-success btn-block" type="submit">LOGIN</button>
+                
+                <a href="<?php echo base_url('index.php/Login/register') ?>" class="btn btn-info btn-block">REGISTER</a>
+                
             </form>
                 
             </div>
+        </div>
         </div>
     </div>
 
