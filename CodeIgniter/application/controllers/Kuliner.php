@@ -16,7 +16,7 @@
  			{
  				if (! $this->acl->is_allowed($current_controller, $data['level'])) 
  				{
- 					redirect('home','refresh')
+ 					redirect('home','refresh');
  				}
  			}
  		}else{
