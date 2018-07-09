@@ -35,14 +35,14 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a>Tugas Besar</a>
+                <a class="navbar-brand" href="<?php echo base_url('index.php/Home') ?>">Tugas Besar</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a>Home</a>
+                        <a href="<?php echo base_url('index.php/Home') ?>">Home</a>
                     </li>
                     <li>
                         <a href="<?php echo base_url('index.php/Login') ?>">Login / Register</a>
@@ -74,27 +74,28 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="jumbotron">
               <form class="form-signin" method="post" action="<?php echo base_url('index.php/Login/register') ?>">
-                <h2><b>MENU REGISTRASI</b></h2>
+                <h2><b>Register your Account</b></h2>
                 <?php echo validation_errors(); ?>
                 <br>
+                <div class="form-group">
                 <label for="username" class="sr-only">Username</label>
                 <input type="text" name="username" id="username" class="form-control" placeholder="Username" autofocus>
-                <br>
+                </div>
+                <div class="form-group">
                 <label for="password" class="sr-only">Password</label>
                 <input type="password" name="password" id="password" class="form-control" placeholder="Password">
-                <br>
+                </div>
+                <div class="form-group">
                 <label for="">ROLE</label>
-                <select name="level" class="form-control">
-                    <option value="">---</option>
-                    <option value="admin">Admin</option>
-                    <option value="user">User</option>
-                </select>
-                <br>
-                <button class="btn btn-info" type="submit">DAFTAR</button>
+                <input type="text" name="level" id="level" class="form-control" placeholder="User" value="user" readonly>
+                </div>
+                <button class="btn btn-info btn-block" type="submit">DAFTAR</button>
 
-                <a href="<?php echo base_url('index.php/Login') ?>" class="btn btn-warning">LOGIN</a>
-              </form>         
+                <a href="<?php echo base_url('index.php/Login') ?>" class="btn btn-success btn-block">LOGIN</a>
+              </form>  
+            </div>       
             </div>
         </div>
     </div>
